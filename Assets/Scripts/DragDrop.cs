@@ -14,6 +14,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private CanvasGroup canvasGroup;
     public string category; // "Bowl", "Noodle", "Protein", "Vegetable"
     public string ingredientName;
+
+    private GameObject draggedInstance;
+    public GameObject ingredientPrefab;
     
 
     private void Awake()
@@ -24,6 +27,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("OnBeginDrag");
+        draggedInstance = Instantiate(ingredientPrefab, transform.position, Quaternion.identity, canvas.transform);
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
 
@@ -39,6 +43,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnEndDrag(PointerEventData eventData) 
     {
         Debug.Log("OnEndDrag");
+        if (draggedInstance != null) 
+        {
+            Destroy(draggedInstance);
+        }
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
 
