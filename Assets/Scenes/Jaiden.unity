@@ -1426,6 +1426,10 @@ MonoBehaviour:
   - chukamen
   - kuyoumen
   - torimen
+  brothOptions:
+  - chicken
+  - vegetable
+  - pork
   proteinOptions:
   - chicken
   - egg
@@ -1439,11 +1443,13 @@ MonoBehaviour:
   currentOrder:
     bowlType: 
     noodleType: 
+    brothType: 
     proteinType: 
     vegetableType: 
   playerBowl:
     bowlType: 
     noodleType: 
+    brothType: 
     proteinType: 
     vegetableType: 
 --- !u!1660057539 &9223372036854775807
