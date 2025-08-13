@@ -59,6 +59,9 @@ public class OrderManager : MonoBehaviour
             case "Noodle":
                 playerBowl.noodleType = ingredient;
                 break;
+            case "Broth":
+                playerBowl.brothType = ingredient;
+                break;
             case "Protein":
                 playerBowl.proteinType = ingredient;
                 break;

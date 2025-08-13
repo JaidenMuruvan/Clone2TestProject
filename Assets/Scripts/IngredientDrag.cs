@@ -27,7 +27,7 @@ public class IngredientDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.position += (Vector3)eventData.delta / canvas.scaleFactor;
+        rectTransform.position += (Vector3)eventData.delta;
     }
 
     public void OnEndDrag(PointerEventData eventData)
