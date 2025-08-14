@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 738027018746543099}
   - component: {fileID: 1371657832750774823}
   - component: {fileID: 8635810024632269461}
+  - component: {fileID: -4870730884109222028}
   m_Layer: 5
   m_Name: Pink
   m_TagString: Untagged
@@ -90,9 +91,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  category: Bowl
+  canvas: {fileID: 1130829269797537567, guid: bbfe276e18f3321419a6d4bd52f191f9, type: 3}
+  ingredientPrefab: {fileID: 4295421971990337942}
   ingredientName: pink
+  category: Bowl
 --- !u!61 &1371657832750774823
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -150,3 +152,17 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &-4870730884109222028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4295421971990337942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a80d6cca23574314296dc5b8f3685082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1130829269797537567, guid: bbfe276e18f3321419a6d4bd52f191f9, type: 3}
+  draggablePrefab: {fileID: 4295421971990337942}

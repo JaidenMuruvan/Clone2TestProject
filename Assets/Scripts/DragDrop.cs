@@ -1,65 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Content;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
+public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    [SerializeField]private Canvas canvas;
+    [SerializeField] private Canvas canvas;
 
-    private RectTransform rectTransform;
-    private Vector3 startPosition;
-    
-    private CanvasGroup canvasGroup;
-    public string category; // "Bowl", "Noodle", "Protein", "Vegetable"
-    public string ingredientName;
-
-    private GameObject draggedInstance;
     public GameObject ingredientPrefab;
-    
+    public string ingredientName;
+    public string category;
+    private GameObject draggedInstance;
+    private RectTransform draggedRectTransform;
 
-    private void Awake()
-    {
-        rectTransform = GetComponent<RectTransform>();
-        canvasGroup = GetComponent<CanvasGroup>();
-    }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("OnBeginDrag");
+        // Spawn a clone when dragging starts
         draggedInstance = Instantiate(ingredientPrefab, transform.position, Quaternion.identity, canvas.transform);
-        canvasGroup.alpha = 0.6f;
-        canvasGroup.blocksRaycasts = false;
+        draggedRectTransform = draggedInstance.GetComponent<RectTransform>();
 
+        // Make the clone semi-transparent
+        CanvasGroup cloneCanvasGroup = draggedInstance.GetComponent<CanvasGroup>();
+        if (cloneCanvasGroup != null)
+        {
+            cloneCanvasGroup.alpha = 0.6f;
+            cloneCanvasGroup.blocksRaycasts = false;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("OnDrag");
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
-
-    }
-
-    public void OnEndDrag(PointerEventData eventData) 
-    {
-        Debug.Log("OnEndDrag");
-        if (draggedInstance != null) 
+        if (draggedRectTransform != null)
         {
-            Destroy(draggedInstance);
+            draggedRectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
         }
-        canvasGroup.alpha = 1f;
-        canvasGroup.blocksRaycasts = true;
-
     }
-    public void OnPointerDown(PointerEventData eventData)
+
+    public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("OnPointerDown");
+        if (draggedInstance != null)
+        {
+            // Check if it's over a valid drop zone
+            if (!eventData.pointerEnter || !eventData.pointerEnter.CompareTag("Bowl"))
+            {
+                Destroy(draggedInstance); // Destroy if not dropped in bowl
+            }
+            else
+            {
+                // If dropped in bowl, make it solid again
+                CanvasGroup cloneCanvasGroup = draggedInstance.GetComponent<CanvasGroup>();
+                if (cloneCanvasGroup != null)
+                {
+                    cloneCanvasGroup.alpha = 1f;
+                    cloneCanvasGroup.blocksRaycasts = true;
+                }
+            }
+        }
     }
 
-    public void OnDrop(PointerEventData eventData)
-    {
-        throw new System.NotImplementedException();
-    }
-
-
+    public void OnPointerDown(PointerEventData eventData) { }
 }

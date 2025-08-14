@@ -23,6 +23,7 @@ public class OrderManager : MonoBehaviour
     [Header("UI")]
     public Text orderText;
     public Text feedbackText;
+    public Text currentOrderText;
 
     [Header("Timer Settings")]
     public float orderTimeLimit = 30f; // seconds
@@ -72,6 +73,7 @@ public class OrderManager : MonoBehaviour
 
         orderText.text = orderString;
         feedbackText.text = "";
+   
 
         playerBowl = new RamenOrder();
 
