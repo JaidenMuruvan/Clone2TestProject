@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8825600350145743125}
   - component: {fileID: 5654096139593703010}
   - component: {fileID: 6526780910798580302}
+  - component: {fileID: 2783025825103685995}
   m_Layer: 5
   m_Name: Blue
   m_TagString: Untagged
@@ -90,9 +91,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  category: Bowl
+  canvas: {fileID: 1130829269797537567, guid: bbfe276e18f3321419a6d4bd52f191f9, type: 3}
+  ingredientPrefab: {fileID: 2726814076761853338}
   ingredientName: blue
+  category: Bowl
 --- !u!61 &5654096139593703010
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -150,3 +152,17 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2783025825103685995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2726814076761853338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a80d6cca23574314296dc5b8f3685082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1130829269797537567, guid: bbfe276e18f3321419a6d4bd52f191f9, type: 3}
+  draggablePrefab: {fileID: 2726814076761853338}

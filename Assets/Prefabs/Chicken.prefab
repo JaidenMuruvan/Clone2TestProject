@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1497888064622498138}
   - component: {fileID: 7837749268860968459}
   - component: {fileID: 5301544803757626176}
-  - component: {fileID: 4787980102679061898}
   - component: {fileID: 4965242293451284161}
   - component: {fileID: 4962439914058445675}
+  - component: {fileID: -7474160595797173521}
+  - component: {fileID: 7798208571524416888}
   m_Layer: 5
   m_Name: Chicken
   m_TagString: Untagged
@@ -79,21 +80,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4787980102679061898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1610594618567109913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  category: Protein
-  ingredientName: chicken
 --- !u!61 &4965242293451284161
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -151,6 +137,36 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &-7474160595797173521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610594618567109913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1130829269797537567, guid: bbfe276e18f3321419a6d4bd52f191f9, type: 3}
+  ingredientPrefab: {fileID: 1610594618567109913}
+  ingredientName: Chicken
+  category: Protein
+--- !u!114 &7798208571524416888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610594618567109913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a80d6cca23574314296dc5b8f3685082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1130829269797537567, guid: bbfe276e18f3321419a6d4bd52f191f9, type: 3}
+  draggablePrefab: {fileID: 1610594618567109913}
 --- !u!1 &5542897171380081174
 GameObject:
   m_ObjectHideFlags: 0

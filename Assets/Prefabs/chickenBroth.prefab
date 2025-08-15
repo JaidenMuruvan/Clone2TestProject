@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2229032378458563406}
   - component: {fileID: 2738281908397842529}
   - component: {fileID: 6489305370694052678}
+  - component: {fileID: -8774249788728090423}
   m_Layer: 5
   m_Name: chickenBroth
   m_TagString: Untagged
@@ -91,9 +92,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  category: Broth
+  canvas: {fileID: 1130829269797537567, guid: bbfe276e18f3321419a6d4bd52f191f9, type: 3}
+  ingredientPrefab: {fileID: 1716797181550062044}
   ingredientName: chicken
+  category: Broth
 --- !u!61 &2738281908397842529
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -151,6 +153,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &-8774249788728090423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716797181550062044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a80d6cca23574314296dc5b8f3685082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1130829269797537567, guid: bbfe276e18f3321419a6d4bd52f191f9, type: 3}
+  draggablePrefab: {fileID: 1716797181550062044}
 --- !u!1 &8593724066322928032
 GameObject:
   m_ObjectHideFlags: 0

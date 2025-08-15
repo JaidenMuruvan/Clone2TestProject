@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -20,9 +21,28 @@ public class OrderManager : MonoBehaviour
     public string[] proteinOptions = { "chicken", "egg", "tofu" };
     public string[] vegetableOptions = { "bokchoy", "mushrooms", "onions" };
 
+    [Header("Boiling")]
+    public GameObject broth;
+
+    [Header("Money")]
+    public int playerMoney = 0;
+    public Text moneyText;
+
+    [Header("Costs")]
+    public int bowlCost = 5;
+    public int noodleCost = 3;
+    public int brothCost = 4;
+    public int proteinCost = 6;
+    public int vegetableCost = 2;
+
+    [Header("Order Reward")]
+    public int orderReward = 20;
+
+
     [Header("UI")]
     public Text orderText;
     public Text feedbackText;
+    public Text currentBowlText;
 
     [Header("Timer Settings")]
     public float orderTimeLimit = 30f; // seconds
@@ -33,12 +53,19 @@ public class OrderManager : MonoBehaviour
     [SerializeField] public RamenOrder currentOrder;
     [SerializeField] public RamenOrder playerBowl;
 
+    
+
     void Start()
     {
         playerBowl = new RamenOrder();
         GenerateOrder();
+        UpdateMoneyUI();
     }
 
+    public void UpdateMoneyUI()
+    {
+        moneyText.text = $"Money: ${playerMoney}";
+    }
     public void GenerateOrder()
     {
         currentOrder = new RamenOrder();
@@ -72,6 +99,7 @@ public class OrderManager : MonoBehaviour
 
         orderText.text = orderString;
         feedbackText.text = "";
+   
 
         playerBowl = new RamenOrder();
 
@@ -86,6 +114,7 @@ public class OrderManager : MonoBehaviour
         if (timerRunning)
         {
             timer -= Time.deltaTime;
+            StartCoroutine(BrothBoiling());
             UpdateTimerUI();
 
             if (timer <= 0f)
@@ -97,10 +126,19 @@ public class OrderManager : MonoBehaviour
         } 
     }
 
+    public IEnumerator BrothBoiling()
+    {
+        broth.SetActive(false);
+
+        yield return new WaitForSeconds(2f);
+
+        broth.SetActive(true);
+    }
+
     void OrderFailed()
     {
         feedbackText.text = "Time's up! Customer left angry!";
-        //Could play sound, deduct points, etc.
+        
         Invoke(nameof(GenerateOrder), 2f); //Wait then new order
     }
 
@@ -115,20 +153,27 @@ public class OrderManager : MonoBehaviour
         {
             case "Bowl":
                 playerBowl.bowlType = ingredient;
+                playerMoney -= bowlCost;
                 break;
             case "Noodle":
                 playerBowl.noodleType = ingredient;
+                playerMoney -= noodleCost;
                 break;
             case "Broth":
                 playerBowl.brothType = ingredient;
+                playerMoney -= brothCost;
                 break;
             case "Protein":
                 playerBowl.proteinType = ingredient;
+                playerMoney -= proteinCost;
                 break;
             case "Vegetable":
                 playerBowl.vegetableType = ingredient;
+                playerMoney -= vegetableCost;
                 break;
         }
+
+        UpdateMoneyUI();
     }
 
     public bool CheckOrder()
@@ -174,6 +219,8 @@ public class OrderManager : MonoBehaviour
         if (correct)
         {
             feedbackText.text = "Correct! Customer is happy!";
+            playerMoney += orderReward;
+            UpdateMoneyUI();
         }
         else
         {
@@ -181,5 +228,27 @@ public class OrderManager : MonoBehaviour
         }
 
         Invoke(nameof(GenerateOrder), 2f); //Wait 2 seconds, then new order
+    }
+
+    public void UpdateCurrentBowlText()
+    {
+        string display = "Last added to bowl:\n";
+
+        if (!string.IsNullOrEmpty(playerBowl.bowlType))
+            display += $"{playerBowl.bowlType} bowl\n";
+
+        if (!string.IsNullOrEmpty(playerBowl.brothType))
+            display += $"{playerBowl.brothType} broth\n";
+
+        if (!string.IsNullOrEmpty(playerBowl.noodleType))
+            display += $"{playerBowl.noodleType} noodles\n";
+
+        if (!string.IsNullOrEmpty(playerBowl.proteinType))
+            display += $"{playerBowl.proteinType}\n";
+
+        if (!string.IsNullOrEmpty(playerBowl.vegetableType))
+            display += $"{playerBowl.vegetableType}\n";
+
+        currentBowlText.text = display;
     }
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 735061619150772467}
   - component: {fileID: 271560588559108288}
   - component: {fileID: 3573610952852870202}
+  - component: {fileID: -1190830087533016600}
   m_Layer: 5
   m_Name: Egg
   m_TagString: Untagged
@@ -91,9 +92,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  category: Protein
+  canvas: {fileID: 1130829269797537567, guid: bbfe276e18f3321419a6d4bd52f191f9, type: 3}
+  ingredientPrefab: {fileID: 1457417500121623422}
   ingredientName: egg
+  category: Protein
 --- !u!61 &271560588559108288
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -151,6 +153,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &-1190830087533016600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457417500121623422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a80d6cca23574314296dc5b8f3685082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1130829269797537567, guid: bbfe276e18f3321419a6d4bd52f191f9, type: 3}
+  draggablePrefab: {fileID: 1457417500121623422}
 --- !u!1 &8641276294597473524
 GameObject:
   m_ObjectHideFlags: 0
