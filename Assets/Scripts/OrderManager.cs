@@ -114,7 +114,7 @@ public class OrderManager : MonoBehaviour
         if (timerRunning)
         {
             timer -= Time.deltaTime;
-            StartCoroutine(BrothBoiling());
+            //StartCoroutine(BrothBoiling());
             UpdateTimerUI();
 
             if (timer <= 0f)
