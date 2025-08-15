@@ -991,6 +991,7 @@ MonoBehaviour:
   - bokchoy
   - mushrooms
   - onions
+  broth: {fileID: 440505076}
   playerMoney: 100
   moneyText: {fileID: 628024531}
   bowlCost: 5
@@ -1002,7 +1003,7 @@ MonoBehaviour:
   orderText: {fileID: 233971960}
   feedbackText: {fileID: 513876668}
   currentBowlText: {fileID: 7111169}
-  orderTimeLimit: 60
+  orderTimeLimit: 5
   timerText: {fileID: 1616427046}
   currentOrder:
     bowlType: 
@@ -1203,6 +1204,10 @@ PrefabInstance:
       propertyPath: ingredientPrefab
       value: 
       objectReference: {fileID: 2792106176376681093, guid: 22586c6321f0d3143b5ffb60fa644777, type: 3}
+    - target: {fileID: 8514433966048459884, guid: bbfe276e18f3321419a6d4bd52f191f9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8524941316688546293, guid: bbfe276e18f3321419a6d4bd52f191f9, type: 3}
       propertyPath: ingredientPrefab
       value: 

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -19,6 +20,9 @@ public class OrderManager : MonoBehaviour
     public string[] brothOptions = { "chicken", "vegetable", "pork" };
     public string[] proteinOptions = { "chicken", "egg", "tofu" };
     public string[] vegetableOptions = { "bokchoy", "mushrooms", "onions" };
+
+    [Header("Boiling")]
+    public GameObject broth;
 
     [Header("Money")]
     public int playerMoney = 0;
@@ -48,6 +52,8 @@ public class OrderManager : MonoBehaviour
 
     [SerializeField] public RamenOrder currentOrder;
     [SerializeField] public RamenOrder playerBowl;
+
+    
 
     void Start()
     {
@@ -108,6 +114,7 @@ public class OrderManager : MonoBehaviour
         if (timerRunning)
         {
             timer -= Time.deltaTime;
+            StartCoroutine(BrothBoiling());
             UpdateTimerUI();
 
             if (timer <= 0f)
@@ -117,6 +124,15 @@ public class OrderManager : MonoBehaviour
                 OrderFailed(); //time up
             }
         } 
+    }
+
+    public IEnumerator BrothBoiling()
+    {
+        broth.SetActive(false);
+
+        yield return new WaitForSeconds(2f);
+
+        broth.SetActive(true);
     }
 
     void OrderFailed()
