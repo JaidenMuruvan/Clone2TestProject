@@ -8,7 +8,7 @@ public class StockIngredients : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        // Spawn a fresh draggable ingredient
+        //Spawn clone
         GameObject clone = Instantiate(draggablePrefab, transform.position, Quaternion.identity, canvas.transform);
     }
 }

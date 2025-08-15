@@ -13,11 +13,11 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // Spawn a clone when dragging starts
+        
         draggedInstance = Instantiate(ingredientPrefab, transform.position, Quaternion.identity, canvas.transform);
         draggedRectTransform = draggedInstance.GetComponent<RectTransform>();
 
-        // Make the clone semi-transparent
+        
         CanvasGroup cloneCanvasGroup = draggedInstance.GetComponent<CanvasGroup>();
         if (cloneCanvasGroup != null)
         {
@@ -38,14 +38,14 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         if (draggedInstance != null)
         {
-            // Check if it's over a valid drop zone
+            
             if (!eventData.pointerEnter || !eventData.pointerEnter.CompareTag("Bowl"))
             {
-                Destroy(draggedInstance); // Destroy if not dropped in bowl
+                Destroy(draggedInstance); //Destroy if not in bowl
             }
             else
             {
-                // If dropped in bowl, make it solid again
+               
                 CanvasGroup cloneCanvasGroup = draggedInstance.GetComponent<CanvasGroup>();
                 if (cloneCanvasGroup != null)
                 {

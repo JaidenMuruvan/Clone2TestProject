@@ -29,7 +29,7 @@ public class IngredientDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
 
-        // If not dropped in a bowl, destroy it
+        
         if (!eventData.pointerEnter || !eventData.pointerEnter.CompareTag("Bowl"))
         {
             Destroy(gameObject);

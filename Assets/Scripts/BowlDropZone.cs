@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BowlDropZone : MonoBehaviour, IDropHandler
 {
     public OrderManager orderManager;
-    public Text currentBowlText; // Assign your UI Text in Inspector
+    public Text currentBowlText; 
     private List<GameObject> ingredientsInBowl = new List<GameObject>();
 
     public void OnDrop(PointerEventData eventData)
@@ -15,17 +15,17 @@ public class BowlDropZone : MonoBehaviour, IDropHandler
         {
             DragDrop ingredient = eventData.pointerDrag.GetComponent<DragDrop>();
 
-            // Snap ingredient into the bowl area
+           
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition =
                 GetComponent<RectTransform>().anchoredPosition;
 
-            // Track the ingredient
+            
             ingredientsInBowl.Add(eventData.pointerDrag);
 
-            // Update OrderManager
+            
             orderManager.AddIngredient(ingredient.category, ingredient.ingredientName);
 
-            // Update bowl display
+            
             UpdateBowlDisplay();
         }
     }
@@ -41,7 +41,7 @@ public class BowlDropZone : MonoBehaviour, IDropHandler
 
             ingredientsInBowl.RemoveAt(ingredientsInBowl.Count - 1);
 
-            // Rebuild playerBowl in OrderManager
+            
             orderManager.playerBowl = new RamenOrder();
             foreach (var ingredientObj in ingredientsInBowl)
             {
@@ -53,7 +53,7 @@ public class BowlDropZone : MonoBehaviour, IDropHandler
                 }
             }
 
-            // Update bowl display
+            
             UpdateBowlDisplay();
         }
     }
