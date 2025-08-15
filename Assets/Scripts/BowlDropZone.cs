@@ -60,7 +60,7 @@ public class BowlDropZone : MonoBehaviour, IDropHandler
 
     private void UpdateBowlDisplay()
     {
-        string display = "Current Bowl:\n";
+        string display = "Last added to tray:\n";
         foreach (var ingredientObj in ingredientsInBowl)
         {
             if (ingredientObj != null)

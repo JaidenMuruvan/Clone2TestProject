@@ -216,7 +216,7 @@ public class OrderManager : MonoBehaviour
 
     public void UpdateCurrentBowlText()
     {
-        string display = "Current Bowl:\n";
+        string display = "Last added to bowl:\n";
 
         if (!string.IsNullOrEmpty(playerBowl.bowlType))
             display += $"{playerBowl.bowlType} bowl\n";
