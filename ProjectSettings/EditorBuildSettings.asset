@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Jaiden.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 1707b45c22b4b92498b137fd37bd15d5
+  - enabled: 1
+    path: Assets/Scenes/Meghan.unity
+    guid: c7579391128613945a905621bbff0576
   m_configObjects: {}
