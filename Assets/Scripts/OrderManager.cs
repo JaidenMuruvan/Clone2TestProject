@@ -104,11 +104,17 @@ public class OrderManager : MonoBehaviour
         playerBowl = new RamenOrder();
 
         //Reset and start timer
+        StartCoroutine(DelayTimer());
+    }
+
+    IEnumerator DelayTimer()
+    {
+        yield return new WaitForSeconds(2f);
+
         timer = orderTimeLimit;
         timerRunning = true;
         UpdateTimerUI();
     }
-
     void Update()
     {
         if (timerRunning)
