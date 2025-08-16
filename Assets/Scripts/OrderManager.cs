@@ -275,7 +275,7 @@ public class OrderManager : MonoBehaviour
             int stars = CalculateStars(timeTaken);
 
             playerMoney += reward;
-            feedbackText.text = $"Correct! Customer is happy! (+${reward}) | x{stars} stars";
+            feedbackText.text = $"Correct! Customer is happy! (+${reward}) x{stars} stars";
             UpdateMoneyUI();
         }
         else
