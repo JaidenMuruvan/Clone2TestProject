@@ -27,6 +27,7 @@ public class OrderManager : MonoBehaviour
     [Header("Money")]
     public int playerMoney = 0;
     public Text moneyText;
+    private float orderStartTime;
 
     [Header("Costs")]
     public int bowlCost = 5;
@@ -88,6 +89,7 @@ public class OrderManager : MonoBehaviour
     }
     public void GenerateOrder()
     {
+        orderStartTime = Time.time;
         currentOrder = new RamenOrder();
 
         //Bowl and broth always present
@@ -269,8 +271,11 @@ public class OrderManager : MonoBehaviour
         if (correct)
         {
             int reward = CalculateReward(currentOrder);
+            float timeTaken = Time.time - orderStartTime;
+            int stars = CalculateStars(timeTaken);
+
             playerMoney += reward;
-            feedbackText.text = $"Correct! Customer is happy! (+${reward})";
+            feedbackText.text = $"Correct! Customer is happy! (+${reward}) | x{stars} stars";
             UpdateMoneyUI();
         }
         else
@@ -278,7 +283,21 @@ public class OrderManager : MonoBehaviour
             feedbackText.text = "Wrong order! Customer is upset!";
         }
 
+        
+
         Invoke(nameof(GenerateOrder), 2f); //Wait 2 seconds, then new order
+    }
+
+    private int CalculateStars(float timeTaken)
+    {
+        if (timeTaken <= 20f)
+            return 3;
+        else if (timeTaken <= 45f)
+            return 2;
+        else if (timeTaken <= 55f)
+            return 1;
+        else
+            return 0;
     }
 
     IEnumerator GhostBtn()
