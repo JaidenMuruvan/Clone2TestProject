@@ -5,7 +5,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 {
     [SerializeField] private Canvas canvas;
 
-    public GameObject ingredientPrefab;
+    public GameObject ingredient;
     public string ingredientName;
     public string category;
     private GameObject draggedInstance;
@@ -14,7 +14,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnBeginDrag(PointerEventData eventData)
     {
         
-        draggedInstance = Instantiate(ingredientPrefab, transform.position, Quaternion.identity, canvas.transform);
+        draggedInstance = Instantiate(ingredient, transform.position, Quaternion.identity, canvas.transform);
         draggedRectTransform = draggedInstance.GetComponent<RectTransform>();
 
         
