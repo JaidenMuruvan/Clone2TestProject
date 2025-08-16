@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class BoilingScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject Broth;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

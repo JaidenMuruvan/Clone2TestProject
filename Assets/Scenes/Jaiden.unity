@@ -4377,8 +4377,8 @@ MonoBehaviour:
   - bokchoy
   - mushrooms
   - onions
-  broth: {fileID: 7388350439272587788}
-  playerMoney: 100
+  broth: {fileID: 704948563}
+  playerMoney: 20
   moneyText: {fileID: 628024531}
   bowlCost: 5
   noodleCost: 3
@@ -4389,7 +4389,7 @@ MonoBehaviour:
   orderText: {fileID: 4732706614652879040}
   feedbackText: {fileID: 561088252244466455}
   currentBowlText: {fileID: 7111169}
-  orderTimeLimit: 5
+  orderTimeLimit: 10
   timerText: {fileID: 5199888075080438238}
   currentOrder:
     bowlType: 

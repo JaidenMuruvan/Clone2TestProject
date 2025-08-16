@@ -64,7 +64,26 @@ public class OrderManager : MonoBehaviour
 
     public void UpdateMoneyUI()
     {
+        if (playerMoney < 0)
+        {
+            playerMoney = 0;
+            EndGame();
+        }
+
         moneyText.text = $"Money: ${playerMoney}";
+    }
+
+    public void EndGame()
+    {
+        Debug.Log("Game Over! You ran out of money.");
+        feedbackText.text = "Game Over! You ran out of money.";
+
+        foreach (DragDrop ingredient in FindObjectsOfType<DragDrop>())
+        {
+            ingredient.enabled = false;
+        }
+
+        timerRunning = false;
     }
     public void GenerateOrder()
     {
@@ -120,7 +139,7 @@ public class OrderManager : MonoBehaviour
         if (timerRunning)
         {
             timer -= Time.deltaTime;
-            //StartCoroutine(BrothBoiling());
+            StartCoroutine(BrothBoiling());
             UpdateTimerUI();
 
             if (timer <= 0f)
