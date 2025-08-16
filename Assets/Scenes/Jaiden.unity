@@ -2710,7 +2710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 2238405813330942335}
   ingredient: {fileID: 1039042558}
-  ingredientName: Chicken
+  ingredientName: chicken
   category: Protein
 --- !u!1 &1130088007
 GameObject:
@@ -4378,7 +4378,7 @@ MonoBehaviour:
   - mushrooms
   - onions
   broth: {fileID: 704948563}
-  playerMoney: 20
+  playerMoney: 100
   moneyText: {fileID: 628024531}
   bowlCost: 5
   noodleCost: 3
@@ -4389,7 +4389,8 @@ MonoBehaviour:
   orderText: {fileID: 4732706614652879040}
   feedbackText: {fileID: 561088252244466455}
   currentBowlText: {fileID: 7111169}
-  orderTimeLimit: 10
+  serveBtn: {fileID: 4986322658255110522}
+  orderTimeLimit: 60
   timerText: {fileID: 5199888075080438238}
   currentOrder:
     bowlType: 
@@ -5310,8 +5311,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 100.49997, y: 11.3}
+  m_SizeDelta: {x: 361, y: 69.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1095235447296815187
 BoxCollider2D:
@@ -8660,7 +8661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 2238405813330942335}
   ingredient: {fileID: 1616247923076787410}
-  ingredientName: mushroooms
+  ingredientName: mushrooms
   category: Vegetable
 --- !u!224 &9214830247822453880
 RectTransform:

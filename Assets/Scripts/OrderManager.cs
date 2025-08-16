@@ -43,6 +43,7 @@ public class OrderManager : MonoBehaviour
     public Text orderText;
     public Text feedbackText;
     public Text currentBowlText;
+    public GameObject serveBtn;
 
     [Header("Timer Settings")]
     public float orderTimeLimit = 30f; // seconds
@@ -139,7 +140,7 @@ public class OrderManager : MonoBehaviour
         if (timerRunning)
         {
             timer -= Time.deltaTime;
-            StartCoroutine(BrothBoiling());
+            //StartCoroutine(BrothBoiling());
             UpdateTimerUI();
 
             if (timer <= 0f)
@@ -229,9 +230,33 @@ public class OrderManager : MonoBehaviour
 
         return isCorrect;
     }
+
+    private int CalculateReward(RamenOrder order)
+    {
+        int reward = 0;
+
+        reward += 5; //Base reward, reward for only bowl and broth
+
+        if (!string.IsNullOrEmpty(order.noodleType))
+            reward += 3;
+            Debug.Log(reward);
+
+        if (!string.IsNullOrEmpty(order.proteinType))
+            reward += 6;
+            Debug.Log(reward);
+
+
+        if (!string.IsNullOrEmpty(order.vegetableType))
+            reward += 2;
+            Debug.Log(reward);
+
+
+        return reward;
+    }
     public void ServeOrder()
     {
         timerRunning = false; //Stop timer 
+        StartCoroutine(GhostBtn());
 
         bool correct = true;
 
@@ -243,8 +268,9 @@ public class OrderManager : MonoBehaviour
 
         if (correct)
         {
-            feedbackText.text = "Correct! Customer is happy!";
-            playerMoney += orderReward;
+            int reward = CalculateReward(currentOrder);
+            playerMoney += reward;
+            feedbackText.text = $"Correct! Customer is happy! (+${reward})";
             UpdateMoneyUI();
         }
         else
@@ -253,6 +279,16 @@ public class OrderManager : MonoBehaviour
         }
 
         Invoke(nameof(GenerateOrder), 2f); //Wait 2 seconds, then new order
+    }
+
+    IEnumerator GhostBtn()
+    {
+        serveBtn.SetActive(false);
+
+        yield return new WaitForSeconds(4f);
+
+        serveBtn.SetActive(true);
+
     }
 
     public void UpdateCurrentBowlText()
