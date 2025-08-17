@@ -22,7 +22,17 @@ public class OrderManager : MonoBehaviour
     public string[] vegetableOptions = { "bokchoy", "mushrooms", "onions" };
 
     [Header("Boiling")]
-    public GameObject broth;
+    public GameObject brothChicken;
+    public GameObject brothPork;
+    public GameObject brothVeg;
+
+    public GameObject brothChickenCover;
+    public GameObject brothPorkCover;
+    public GameObject brothVegCover;
+
+    public GameObject chickenBtn;
+    public GameObject porkBtn;
+    public GameObject vegBtn;
 
     [Header("Money")]
     public int playerMoney = 0;
@@ -47,7 +57,7 @@ public class OrderManager : MonoBehaviour
     public GameObject serveBtn;
 
     [Header("Timer Settings")]
-    public float orderTimeLimit = 30f; // seconds
+    public float orderTimeLimit = 30f; //seconds
     private float timer;
     public Text timerText;
     private bool timerRunning;
@@ -136,13 +146,22 @@ public class OrderManager : MonoBehaviour
         timer = orderTimeLimit;
         timerRunning = true;
         UpdateTimerUI();
+
+        brothChicken.SetActive(false);
+        brothPork.SetActive(false);
+        brothVeg.SetActive(false);
+
+        chickenBtn.SetActive(true);
+        porkBtn.SetActive(true);
+        vegBtn.SetActive(true);
+
     }
     void Update()
     {
         if (timerRunning)
         {
             timer -= Time.deltaTime;
-            //StartCoroutine(BrothBoiling());
+            
             UpdateTimerUI();
 
             if (timer <= 0f)
@@ -154,13 +173,46 @@ public class OrderManager : MonoBehaviour
         } 
     }
 
-    public IEnumerator BrothBoiling()
+    public void BoilBrothChicken()
     {
-        broth.SetActive(false);
-
+        brothChickenCover.SetActive(true);
+        StartCoroutine(BrothBoilingChicken());
+        chickenBtn.SetActive(false);
+    }
+    public IEnumerator BrothBoilingChicken()
+    {
         yield return new WaitForSeconds(2f);
 
-        broth.SetActive(true);
+        brothChicken.SetActive(true);
+        brothChickenCover.SetActive(false);
+    }
+
+    public void BoilBrothPork()
+    {
+        brothPorkCover.SetActive(true);
+        StartCoroutine(BrothBoilingPork());
+        porkBtn.SetActive(false);
+    }
+    public IEnumerator BrothBoilingPork()
+    {
+        yield return new WaitForSeconds(2f);
+
+        brothPork.SetActive(true);
+        brothPorkCover.SetActive(false);
+    }
+
+    public void BoilBrothVeg()
+    {
+        brothVegCover.SetActive(true);
+        StartCoroutine(BrothBoilingVeg());
+        vegBtn.SetActive(false);
+    }
+    public IEnumerator BrothBoilingVeg()
+    {
+        yield return new WaitForSeconds(2f);
+
+        brothVeg.SetActive(true);
+        brothVegCover.SetActive(false);
     }
 
     void OrderFailed()
