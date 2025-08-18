@@ -5449,7 +5449,7 @@ MonoBehaviour:
   feedbackText: {fileID: 561088252244466455}
   currentBowlText: {fileID: 7111169}
   serveBtn: {fileID: 4986322658255110522}
-  orderTimeLimit: 10
+  orderTimeLimit: 30
   timerText: {fileID: 5199888075080438238}
   currentOrder:
     bowlType: 
