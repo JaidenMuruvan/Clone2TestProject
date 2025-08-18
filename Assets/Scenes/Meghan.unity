@@ -11646,8 +11646,8 @@ MonoBehaviour:
   chickenBtn: {fileID: 0}
   porkBtn: {fileID: 0}
   vegBtn: {fileID: 0}
-  playerMoney: 100
-  moneyText: {fileID: 1360399325}
+  playerMoney: 0
+  moneyText: {fileID: 0}
   bowlCost: 5
   noodleCost: 3
   brothCost: 4
@@ -11656,10 +11656,10 @@ MonoBehaviour:
   orderReward: 20
   orderText: {fileID: 616549655}
   feedbackText: {fileID: 905198959}
-  currentBowlText: {fileID: 383461832}
-  serveBtn: {fileID: 71123277}
+  currentBowlText: {fileID: 0}
+  serveBtn: {fileID: 0}
   orderTimeLimit: 30
-  timerText: {fileID: 514756284}
+  timerText: {fileID: 0}
   currentOrder:
     bowlType: 
     noodleType: 
