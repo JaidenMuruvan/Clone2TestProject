@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9dbba2e596d4547b4731e15eaef735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
 --- !u!114 &5972515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
   ingredient: {fileID: 0}
   ingredientName: green
   category: Bowl
@@ -1455,7 +1455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9dbba2e596d4547b4731e15eaef735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
 --- !u!114 &234915470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1468,7 +1468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
   ingredient: {fileID: 0}
   ingredientName: kuyoumen
   category: Noodle
@@ -1700,7 +1700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9dbba2e596d4547b4731e15eaef735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
 --- !u!114 &242541960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1713,7 +1713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
   ingredient: {fileID: 0}
   ingredientName: tofu
   category: Protein
@@ -2414,7 +2414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9dbba2e596d4547b4731e15eaef735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
 --- !u!114 &368130643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2427,7 +2427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
   ingredient: {fileID: 0}
   ingredientName: torimen
   category: Noodle
@@ -3617,7 +3617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9dbba2e596d4547b4731e15eaef735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
 --- !u!114 &472446942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3630,7 +3630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
   ingredient: {fileID: 0}
   ingredientName: chukamen
   category: Noodle
@@ -6676,7 +6676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9dbba2e596d4547b4731e15eaef735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
 --- !u!114 &1011070571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6689,7 +6689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
   ingredient: {fileID: 0}
   ingredientName: vegetable
   category: Broth
@@ -7715,7 +7715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9dbba2e596d4547b4731e15eaef735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
 --- !u!114 &1121941509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7728,7 +7728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
   ingredient: {fileID: 0}
   ingredientName: blue
   category: Bowl
@@ -10087,7 +10087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9dbba2e596d4547b4731e15eaef735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
 --- !u!114 &1525741429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10100,7 +10100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
   ingredient: {fileID: 0}
   ingredientName: egg
   category: Protein
@@ -10537,7 +10537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9dbba2e596d4547b4731e15eaef735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
 --- !u!114 &1597681428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10550,7 +10550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
   ingredient: {fileID: 0}
   ingredientName: chicken
   category: Broth
@@ -11365,7 +11365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9dbba2e596d4547b4731e15eaef735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
 --- !u!114 &1775637665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11378,7 +11378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
   ingredient: {fileID: 0}
   ingredientName: bokchoy
   category: Vegetable
@@ -12388,7 +12388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9dbba2e596d4547b4731e15eaef735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
 --- !u!114 &1941330650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12401,7 +12401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
   ingredient: {fileID: 0}
   ingredientName: onions
   category: Vegetable
@@ -12684,7 +12684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
   ingredient: {fileID: 0}
   ingredientName: chicken
   category: Protein
@@ -12700,7 +12700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9dbba2e596d4547b4731e15eaef735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
 --- !u!225 &1961176981
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -13420,7 +13420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9dbba2e596d4547b4731e15eaef735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
 --- !u!114 &2019480801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13433,7 +13433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
   ingredient: {fileID: 0}
   ingredientName: mushrooms
   category: Vegetable
@@ -13820,7 +13820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9dbba2e596d4547b4731e15eaef735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
 --- !u!114 &2109020656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13833,7 +13833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
   ingredient: {fileID: 0}
   ingredientName: pink
   category: Bowl
@@ -14172,7 +14172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9dbba2e596d4547b4731e15eaef735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
 --- !u!114 &2135520118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14185,7 +14185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 271974780}
+  canvas: {fileID: 0}
   ingredient: {fileID: 0}
   ingredientName: pork
   category: Broth
