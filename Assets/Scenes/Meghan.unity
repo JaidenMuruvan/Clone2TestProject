@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 271974780}
-  ingredient: {fileID: 5972511}
+  ingredient: {fileID: 0}
   ingredientName: green
   category: Bowl
 --- !u!114 &5972516
@@ -1469,7 +1469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 271974780}
-  ingredient: {fileID: 234915466}
+  ingredient: {fileID: 0}
   ingredientName: kuyoumen
   category: Noodle
 --- !u!114 &234915471
@@ -1714,7 +1714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 271974780}
-  ingredient: {fileID: 242541956}
+  ingredient: {fileID: 0}
   ingredientName: tofu
   category: Protein
 --- !u!114 &242541961
@@ -2428,7 +2428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 271974780}
-  ingredient: {fileID: 368130639}
+  ingredient: {fileID: 0}
   ingredientName: torimen
   category: Noodle
 --- !u!114 &368130644
@@ -3631,7 +3631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 271974780}
-  ingredient: {fileID: 472446938}
+  ingredient: {fileID: 0}
   ingredientName: chukamen
   category: Noodle
 --- !u!114 &472446943
@@ -6690,7 +6690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 271974780}
-  ingredient: {fileID: 1011070567}
+  ingredient: {fileID: 0}
   ingredientName: vegetable
   category: Broth
 --- !u!114 &1011070572
@@ -6937,7 +6937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orderManager: {fileID: 1852165983}
-  currentBowlText: {fileID: 383461832}
+  currentBowlText: {fileID: 0}
 --- !u!114 &1039617515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7729,7 +7729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 271974780}
-  ingredient: {fileID: 1121941505}
+  ingredient: {fileID: 0}
   ingredientName: blue
   category: Bowl
 --- !u!114 &1121941510
@@ -10101,7 +10101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 271974780}
-  ingredient: {fileID: 1525741425}
+  ingredient: {fileID: 0}
   ingredientName: egg
   category: Protein
 --- !u!114 &1525741430
@@ -10551,7 +10551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 271974780}
-  ingredient: {fileID: 1597681424}
+  ingredient: {fileID: 0}
   ingredientName: chicken
   category: Broth
 --- !u!114 &1597681429
@@ -11379,7 +11379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 271974780}
-  ingredient: {fileID: 1775637661}
+  ingredient: {fileID: 0}
   ingredientName: bokchoy
   category: Vegetable
 --- !u!114 &1775637666
@@ -11637,15 +11637,15 @@ MonoBehaviour:
   - bokchoy
   - mushrooms
   - onions
-  brothChicken: {fileID: 1201728045}
-  brothPork: {fileID: 1320272459}
-  brothVeg: {fileID: 1706184210}
-  brothChickenCover: {fileID: 1754038510}
-  brothPorkCover: {fileID: 714371465}
-  brothVegCover: {fileID: 1605271767}
-  chickenBtn: {fileID: 829921437}
-  porkBtn: {fileID: 300574219}
-  vegBtn: {fileID: 1273484558}
+  brothChicken: {fileID: 0}
+  brothPork: {fileID: 0}
+  brothVeg: {fileID: 0}
+  brothChickenCover: {fileID: 0}
+  brothPorkCover: {fileID: 0}
+  brothVegCover: {fileID: 0}
+  chickenBtn: {fileID: 0}
+  porkBtn: {fileID: 0}
+  vegBtn: {fileID: 0}
   playerMoney: 100
   moneyText: {fileID: 1360399325}
   bowlCost: 5
@@ -11658,7 +11658,7 @@ MonoBehaviour:
   feedbackText: {fileID: 905198959}
   currentBowlText: {fileID: 383461832}
   serveBtn: {fileID: 71123277}
-  orderTimeLimit: 10
+  orderTimeLimit: 30
   timerText: {fileID: 514756284}
   currentOrder:
     bowlType: 
@@ -12402,7 +12402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 271974780}
-  ingredient: {fileID: 1941330646}
+  ingredient: {fileID: 0}
   ingredientName: onions
   category: Vegetable
 --- !u!114 &1941330651
@@ -12685,7 +12685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 271974780}
-  ingredient: {fileID: 1961176978}
+  ingredient: {fileID: 0}
   ingredientName: chicken
   category: Protein
 --- !u!114 &1961176980
@@ -13434,7 +13434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 271974780}
-  ingredient: {fileID: 2019480797}
+  ingredient: {fileID: 0}
   ingredientName: mushrooms
   category: Vegetable
 --- !u!114 &2019480802
@@ -13834,7 +13834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 271974780}
-  ingredient: {fileID: 2109020652}
+  ingredient: {fileID: 0}
   ingredientName: pink
   category: Bowl
 --- !u!114 &2109020657
@@ -14186,7 +14186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 271974780}
-  ingredient: {fileID: 2135520114}
+  ingredient: {fileID: 0}
   ingredientName: pork
   category: Broth
 --- !u!114 &2135520119
