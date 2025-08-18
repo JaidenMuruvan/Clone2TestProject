@@ -22,11 +22,22 @@ public class OrderManager : MonoBehaviour
     public string[] vegetableOptions = { "bokchoy", "mushrooms", "onions" };
 
     [Header("Boiling")]
-    public GameObject broth;
+    public GameObject brothChicken;
+    public GameObject brothPork;
+    public GameObject brothVeg;
+
+    public GameObject brothChickenCover;
+    public GameObject brothPorkCover;
+    public GameObject brothVegCover;
+
+    public GameObject chickenBtn;
+    public GameObject porkBtn;
+    public GameObject vegBtn;
 
     [Header("Money")]
     public int playerMoney = 0;
     public Text moneyText;
+    private float orderStartTime;
 
     [Header("Costs")]
     public int bowlCost = 5;
@@ -43,9 +54,10 @@ public class OrderManager : MonoBehaviour
     public Text orderText;
     public Text feedbackText;
     public Text currentBowlText;
+    public GameObject serveBtn;
 
     [Header("Timer Settings")]
-    public float orderTimeLimit = 30f; // seconds
+    public float orderTimeLimit = 30f; //seconds
     private float timer;
     public Text timerText;
     private bool timerRunning;
@@ -64,10 +76,30 @@ public class OrderManager : MonoBehaviour
 
     public void UpdateMoneyUI()
     {
+        if (playerMoney < 0)
+        {
+            playerMoney = 0;
+            EndGame();
+        }
+
         moneyText.text = $"Money: ${playerMoney}";
+    }
+
+    public void EndGame()
+    {
+        Debug.Log("Game Over! You ran out of money.");
+        feedbackText.text = "Game Over! You ran out of money.";
+
+        foreach (DragDrop ingredient in FindObjectsOfType<DragDrop>())
+        {
+            ingredient.enabled = false;
+        }
+
+        timerRunning = false;
     }
     public void GenerateOrder()
     {
+        orderStartTime = Time.time;
         currentOrder = new RamenOrder();
 
         //Bowl and broth always present
@@ -104,17 +136,32 @@ public class OrderManager : MonoBehaviour
         playerBowl = new RamenOrder();
 
         //Reset and start timer
+        StartCoroutine(DelayTimer());
+    }
+
+    IEnumerator DelayTimer()
+    {
+        yield return new WaitForSeconds(2f);
+
         timer = orderTimeLimit;
         timerRunning = true;
         UpdateTimerUI();
-    }
 
+        brothChicken.SetActive(false);
+        brothPork.SetActive(false);
+        brothVeg.SetActive(false);
+
+        chickenBtn.SetActive(true);
+        porkBtn.SetActive(true);
+        vegBtn.SetActive(true);
+
+    }
     void Update()
     {
         if (timerRunning)
         {
             timer -= Time.deltaTime;
-            //StartCoroutine(BrothBoiling());
+            
             UpdateTimerUI();
 
             if (timer <= 0f)
@@ -126,13 +173,46 @@ public class OrderManager : MonoBehaviour
         } 
     }
 
-    public IEnumerator BrothBoiling()
+    public void BoilBrothChicken()
     {
-        broth.SetActive(false);
-
+        brothChickenCover.SetActive(true);
+        StartCoroutine(BrothBoilingChicken());
+        chickenBtn.SetActive(false);
+    }
+    public IEnumerator BrothBoilingChicken()
+    {
         yield return new WaitForSeconds(2f);
 
-        broth.SetActive(true);
+        brothChicken.SetActive(true);
+        brothChickenCover.SetActive(false);
+    }
+
+    public void BoilBrothPork()
+    {
+        brothPorkCover.SetActive(true);
+        StartCoroutine(BrothBoilingPork());
+        porkBtn.SetActive(false);
+    }
+    public IEnumerator BrothBoilingPork()
+    {
+        yield return new WaitForSeconds(2f);
+
+        brothPork.SetActive(true);
+        brothPorkCover.SetActive(false);
+    }
+
+    public void BoilBrothVeg()
+    {
+        brothVegCover.SetActive(true);
+        StartCoroutine(BrothBoilingVeg());
+        vegBtn.SetActive(false);
+    }
+    public IEnumerator BrothBoilingVeg()
+    {
+        yield return new WaitForSeconds(2f);
+
+        brothVeg.SetActive(true);
+        brothVegCover.SetActive(false);
     }
 
     void OrderFailed()
@@ -204,9 +284,33 @@ public class OrderManager : MonoBehaviour
 
         return isCorrect;
     }
+
+    private int CalculateReward(RamenOrder order)
+    {
+        int reward = 0;
+
+        reward += 5; //Base reward, reward for only bowl and broth
+
+        if (!string.IsNullOrEmpty(order.noodleType))
+            reward += 3;
+            Debug.Log(reward);
+
+        if (!string.IsNullOrEmpty(order.proteinType))
+            reward += 6;
+            Debug.Log(reward);
+
+
+        if (!string.IsNullOrEmpty(order.vegetableType))
+            reward += 2;
+            Debug.Log(reward);
+
+
+        return reward;
+    }
     public void ServeOrder()
     {
         timerRunning = false; //Stop timer 
+        StartCoroutine(GhostBtn());
 
         bool correct = true;
 
@@ -218,8 +322,12 @@ public class OrderManager : MonoBehaviour
 
         if (correct)
         {
-            feedbackText.text = "Correct! Customer is happy!";
-            playerMoney += orderReward;
+            int reward = CalculateReward(currentOrder);
+            float timeTaken = Time.time - orderStartTime;
+            int stars = CalculateStars(timeTaken);
+
+            playerMoney += reward;
+            feedbackText.text = $"Correct! Customer is happy! (+${reward}) x{stars} stars";
             UpdateMoneyUI();
         }
         else
@@ -227,7 +335,31 @@ public class OrderManager : MonoBehaviour
             feedbackText.text = "Wrong order! Customer is upset!";
         }
 
+        
+
         Invoke(nameof(GenerateOrder), 2f); //Wait 2 seconds, then new order
+    }
+
+    private int CalculateStars(float timeTaken)
+    {
+        if (timeTaken <= 20f)
+            return 3;
+        else if (timeTaken <= 45f)
+            return 2;
+        else if (timeTaken <= 55f)
+            return 1;
+        else
+            return 0;
+    }
+
+    IEnumerator GhostBtn()
+    {
+        serveBtn.SetActive(false);
+
+        yield return new WaitForSeconds(4f);
+
+        serveBtn.SetActive(true);
+
     }
 
     public void UpdateCurrentBowlText()
