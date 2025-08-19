@@ -82,7 +82,7 @@ public class OrderManager : MonoBehaviour
             EndGame();
         }
 
-        moneyText.text = $"Money: ${playerMoney}";
+        moneyText.text = $"${playerMoney}";
     }
 
     public void EndGame()
@@ -224,7 +224,7 @@ public class OrderManager : MonoBehaviour
 
     void UpdateTimerUI()
     {
-        timerText.text = $"Time: {Mathf.Ceil(timer)}s";
+        timerText.text = $"{Mathf.Ceil(timer)}s";
     }
 
     public void AddIngredient(string category, string ingredient)
