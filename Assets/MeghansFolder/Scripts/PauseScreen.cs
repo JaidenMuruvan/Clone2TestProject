@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PauseScreen : MonoBehaviour
 {
-    public GameObject pauseMenuUI; 
+    public GameObject pauseMenuUI;
+    public GameObject counterStation;
     private bool isPaused = false;
 
     void Update()
@@ -32,6 +33,7 @@ public class PauseScreen : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+        counterStation.SetActive(true);
     }
 
     public void PauseGame()
@@ -39,6 +41,7 @@ public class PauseScreen : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+        counterStation.SetActive(false);
     }
 
     public void QuitGame()

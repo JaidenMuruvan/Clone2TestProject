@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BowlDropZone : MonoBehaviour, IDropHandler
 {
     public OrderManager orderManager;
+    public BowlVisuals bowlVisuals;
     public Text currentBowlText; 
     private List<GameObject> ingredientsInBowl = new List<GameObject>();
 
@@ -15,6 +16,14 @@ public class BowlDropZone : MonoBehaviour, IDropHandler
         {
             DragDrop ingredient = eventData.pointerDrag.GetComponent<DragDrop>();
 
+            if(ingredient != null)
+            {
+                orderManager.AddIngredient(ingredient.category, ingredient.ingredientName);
+                bowlVisuals.ShowIngredient(ingredient.ingredientName);
+
+
+                Debug.Log($"Added {ingredient.ingredientName} to bowl and showed image"); 
+            }
            
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition =
                 GetComponent<RectTransform>().anchoredPosition;

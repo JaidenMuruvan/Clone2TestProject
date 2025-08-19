@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using static BowlVisuals;
 
 [System.Serializable]
 public class RamenOrder
@@ -17,7 +18,7 @@ public class OrderManager : MonoBehaviour
     [Header("Ingredients")]
     public string[] bowlOptions = { "blue", "green", "pink" };
     public string[] noodleOptions = { "chukamen", "kuyoumen", "torimen" };
-    public string[] brothOptions = { "chicken", "vegetable", "pork" };
+    public string[] brothOptions = { "chickenb", "vegetableb", "porkb" };
     public string[] proteinOptions = { "chicken", "egg", "tofu" };
     public string[] vegetableOptions = { "bokchoy", "mushrooms", "onions" };
 
@@ -320,6 +321,7 @@ public class OrderManager : MonoBehaviour
         bowlBlue.SetActive(false);
         bowlPink.SetActive(false);
 
+        
         bool correct = true;
 
         if (playerBowl.bowlType != currentOrder.bowlType) correct = false;
