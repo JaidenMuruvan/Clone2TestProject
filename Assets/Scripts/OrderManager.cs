@@ -55,6 +55,9 @@ public class OrderManager : MonoBehaviour
     public Text feedbackText;
     public Text currentBowlText;
     public GameObject serveBtn;
+    public GameObject bowlGreen;
+    public GameObject bowlBlue;
+    public GameObject bowlPink;
 
     [Header("Timer Settings")]
     public float orderTimeLimit = 30f; //seconds
@@ -285,6 +288,8 @@ public class OrderManager : MonoBehaviour
         return isCorrect;
     }
 
+    
+
     private int CalculateReward(RamenOrder order)
     {
         int reward = 0;
@@ -311,6 +316,9 @@ public class OrderManager : MonoBehaviour
     {
         timerRunning = false; //Stop timer 
         StartCoroutine(GhostBtn());
+        bowlGreen.SetActive(false);
+        bowlBlue.SetActive(false);
+        bowlPink.SetActive(false);
 
         bool correct = true;
 

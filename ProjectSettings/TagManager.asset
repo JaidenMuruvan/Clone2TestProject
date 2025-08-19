@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bowl
   - Ingredient
+  - Green
   layers:
   - Default
   - TransparentFX
