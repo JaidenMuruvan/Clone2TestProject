@@ -47,4 +47,10 @@ public class BowlButton : MonoBehaviour
         characterThree.SetActive(true);
         textBox.SetActive(true);
     }
+
+    public void TextBoxOn()
+    {
+        textBox.SetActive(true);
+
+    }
 }
