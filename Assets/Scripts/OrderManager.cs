@@ -31,11 +31,11 @@ public enum OrderType
 public class OrderManager : MonoBehaviour
 {
     [Header("Ingredients")]
-    public string[] bowlOptions = { "blue", "green", "pink" };
-    public string[] noodleOptions = { "chukamen", "kuyoumen", "torimen" };
-    public string[] brothOptions = { "chickenb", "vegetableb", "porkb" };
-    public string[] proteinOptions = { "chicken", "egg", "tofu" };
-    public string[] vegetableOptions = { "bokchoy", "mushrooms", "onions" };
+    public string[] bowlOptions = { "Blue Bowl", "Green Bowl", "Pink Bowl" };
+    public string[] noodleOptions = { "Chukamen", "Kuyou-men", "Tori-men" };
+    public string[] brothOptions = { "Chicken Broth", "Vegetable Broth", "Pork Bone Broth" };
+    public string[] proteinOptions = { "Chicken", "Boiled Egg", "Tofu" };
+    public string[] vegetableOptions = { "Bok Choy", "Shiitake Mushrooms", "Scallions" };
 
     [Header("Boiling")]
     public GameObject brothChicken;
@@ -56,11 +56,11 @@ public class OrderManager : MonoBehaviour
     private float orderStartTime;
 
     [Header("Costs")]
-    public int bowlCost = 5;
-    public int noodleCost = 3;
-    public int brothCost = 4;
-    public int proteinCost = 6;
-    public int vegetableCost = 2;
+    public int bowlCost = 1;
+    public int noodleCost = 1;
+    public int brothCost = 2;
+    public int proteinCost = 2;
+    public int vegetableCost = 1;
 
     [Header("UI")]
     public Text orderText;
@@ -98,19 +98,19 @@ public class OrderManager : MonoBehaviour
         Recipe recipe1 = new Recipe
         {
             recipeName = "Misco Chicken Ramen",
-            ingredients = new List<string> { "blue", "chickenb", "chukamen", "bokchoy", "chicken", "onions" },
+            ingredients = new List<string> { "Blue Bowl", "Chicken Broth", "Chukamen", "Bok Choy", "Chicken", "Scallions" },
             reward = 10
         };
         Recipe recipe2 = new Recipe
         {
             recipeName = "Vegetable Shio Ramen (Vegetarian)",
-            ingredients = new List<string> { "green", "vegetableb", "torimen", "bokchoy", "tofu", "onions" },
+            ingredients = new List<string> { "Green Bowl", "Vegetable Broth", "Tori-men", "Bok Choy", "Tofu", "Scallions" },
             reward = 5
         };
         Recipe recipe3 = new Recipe
         {
             recipeName = "Tonkotsu Egg Ramen",
-            ingredients = new List<string> { "pink", "porkb", "torimen", "bokchoy", "egg", "mushrooms" },
+            ingredients = new List<string> { "Pink Bowl", "Pork Bone Broth", "Tori-men", "Bok Choy", "Boiled Egg", "Shiitake Mushrooms" },
             reward = 8
         };
 
@@ -165,9 +165,9 @@ public class OrderManager : MonoBehaviour
         
         foreach (string ing in recipe.ingredients)
         {
-            if (ing == "blue" || ing == "green" || ing == "pink")
+            if (ing == "Blue Bowl" || ing == "Green Bowl" || ing == "Pink Bowl")
                 currentOrder.bowlType = ing;
-            else if (ing.EndsWith("b"))
+            else if (ing.EndsWith("h"))
                 currentOrder.brothType = ing;
             else if (System.Array.Exists(noodleOptions, x => x == ing))
                 currentOrder.noodleType = ing;
@@ -211,10 +211,10 @@ public class OrderManager : MonoBehaviour
 
     private void DisplayOrderText(RamenOrder order)
     {
-        string orderString = $"Customer Order:\n{order.bowlType} bowl\n{order.brothType} broth";
+        string orderString = $"Customer Order:\n{order.bowlType} \n{order.brothType}";
 
         if (!string.IsNullOrEmpty(order.noodleType))
-            orderString += $"\n{order.noodleType} noodles";
+            orderString += $"\n{order.noodleType} Noodles";
         if (!string.IsNullOrEmpty(order.proteinType))
             orderString += $"\n{order.proteinType}";
         if (!string.IsNullOrEmpty(order.vegetableType))
@@ -262,7 +262,7 @@ public class OrderManager : MonoBehaviour
     void OrderFailed()
     {
         feedbackText.text = "Time's up! Customer left angry!";
-        Invoke(nameof(GenerateNextOrder), 2f);
+        Invoke(nameof(GenerateNextOrder), 5f);
     }
 
     public void BoilBrothChicken() 
@@ -273,7 +273,7 @@ public class OrderManager : MonoBehaviour
     }
     public IEnumerator BrothBoilingChicken() 
     { 
-        yield return new WaitForSeconds(2f); 
+        yield return new WaitForSeconds(3f); 
         brothChicken.SetActive(true); 
         brothChickenCover.SetActive(false); 
     }
@@ -284,7 +284,7 @@ public class OrderManager : MonoBehaviour
         porkBtn.SetActive(false); 
     }
     public IEnumerator BrothBoilingPork() 
-    { yield return new WaitForSeconds(2f); 
+    { yield return new WaitForSeconds(3f); 
         brothPork.SetActive(true); 
         brothPorkCover.SetActive(false); 
     }
@@ -295,7 +295,7 @@ public class OrderManager : MonoBehaviour
         vegBtn.SetActive(false); 
     }
     public IEnumerator BrothBoilingVeg() 
-    { yield return new WaitForSeconds(2f); 
+    { yield return new WaitForSeconds(3f); 
         brothVeg.SetActive(true); 
         brothVegCover.SetActive(false); 
     }
@@ -354,15 +354,15 @@ public class OrderManager : MonoBehaviour
             feedbackText.text = "Wrong order! Customer is upset!";
         }
 
-        Invoke(nameof(GenerateNextOrder), 2f);
+        Invoke(nameof(GenerateNextOrder), 5f);
     }
 
     private int CalculateReward(RamenOrder order)
     {
-        int reward = 5; //base reward
+        int reward = 3; //base reward
 
-        if (!string.IsNullOrEmpty(order.noodleType)) reward += 3;
-        if (!string.IsNullOrEmpty(order.proteinType)) reward += 6;
+        if (!string.IsNullOrEmpty(order.noodleType)) reward += 2;
+        if (!string.IsNullOrEmpty(order.proteinType)) reward += 3;
         if (!string.IsNullOrEmpty(order.vegetableType)) reward += 2;
 
         return reward;
@@ -436,9 +436,9 @@ public class OrderManager : MonoBehaviour
     {
         string display = "Last added to bowl:\n";
 
-        if (!string.IsNullOrEmpty(playerBowl.bowlType)) display += $"{playerBowl.bowlType} bowl\n";
-        if (!string.IsNullOrEmpty(playerBowl.brothType)) display += $"{playerBowl.brothType} broth\n";
-        if (!string.IsNullOrEmpty(playerBowl.noodleType)) display += $"{playerBowl.noodleType} noodles\n";
+        if (!string.IsNullOrEmpty(playerBowl.bowlType)) display += $"{playerBowl.bowlType}\n";
+        if (!string.IsNullOrEmpty(playerBowl.brothType)) display += $"{playerBowl.brothType}\n";
+        if (!string.IsNullOrEmpty(playerBowl.noodleType)) display += $"{playerBowl.noodleType} Noodles\n";
         if (!string.IsNullOrEmpty(playerBowl.proteinType)) display += $"{playerBowl.proteinType}\n";
         if (!string.IsNullOrEmpty(playerBowl.vegetableType)) display += $"{playerBowl.vegetableType}\n";
 

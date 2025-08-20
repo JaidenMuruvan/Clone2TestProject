@@ -228,7 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 55778730}
   ingredient: {fileID: 1392229}
-  ingredientName: vegetableb
+  ingredientName: Vegetable Broth
   category: Broth
 --- !u!114 &1392234
 MonoBehaviour:
@@ -1292,29 +1292,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientVisuals:
-  - ingredientName: chicken
+  - ingredientName: Chicken
     ingredientImage: {fileID: 211775611}
-  - ingredientName: egg
+  - ingredientName: Boiled Egg
     ingredientImage: {fileID: 130405984}
-  - ingredientName: tofu
+  - ingredientName: Tofu
     ingredientImage: {fileID: 1137743632}
-  - ingredientName: chukamen
+  - ingredientName: Chukamen
     ingredientImage: {fileID: 1805440835}
-  - ingredientName: kuyoumen
+  - ingredientName: Kuyou-men
     ingredientImage: {fileID: 1310018386}
-  - ingredientName: torimen
+  - ingredientName: Tori-men
     ingredientImage: {fileID: 1612632899}
-  - ingredientName: chickenb
+  - ingredientName: Chicken Broth
     ingredientImage: {fileID: 2105289183}
-  - ingredientName: porkb
+  - ingredientName: Pork Bone Broth
     ingredientImage: {fileID: 788412999}
-  - ingredientName: vegetableb
+  - ingredientName: Vegetable Broth
     ingredientImage: {fileID: 788412999}
-  - ingredientName: bokchoy
+  - ingredientName: Bok Choy
     ingredientImage: {fileID: 1773923873}
-  - ingredientName: mushrooms
+  - ingredientName: Shiitake Mushrooms
     ingredientImage: {fileID: 1030703589}
-  - ingredientName: onions
+  - ingredientName: Scallions
     ingredientImage: {fileID: 2015665922}
 --- !u!1 &195413826
 GameObject:
@@ -1556,14 +1556,14 @@ RectTransform:
   m_GameObject: {fileID: 212017739}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3502856, y: 0.63675326, z: 1}
+  m_LocalScale: {x: 1.3502856, y: 1.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1165723311}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.31, y: -0.24}
+  m_AnchoredPosition: {x: 2.31, y: -0.42999977}
   m_SizeDelta: {x: 1.841, y: 0.807}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &212017741
@@ -2132,7 +2132,7 @@ Transform:
   m_GameObject: {fileID: 221218236}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.18, y: 2.88, z: 0}
+  m_LocalPosition: {x: -5.37, y: 2.88, z: 0}
   m_LocalScale: {x: 0.14, y: 0.14, z: 0.14}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2342,7 +2342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 55778730}
   ingredient: {fileID: 294221461}
-  ingredientName: chicken
+  ingredientName: Chicken
   category: Protein
 --- !u!114 &294221463
 MonoBehaviour:
@@ -5636,14 +5636,14 @@ RectTransform:
   m_GameObject: {fileID: 749740754}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3502796, y: 0.6367577, z: 1}
+  m_LocalScale: {x: 1.3502796, y: 1.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 966061174}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.4599984, y: -0.21}
+  m_AnchoredPosition: {x: -2.4599984, y: -0.39999977}
   m_SizeDelta: {x: 1.841, y: 0.807}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &749740756
@@ -6212,7 +6212,7 @@ Transform:
   m_GameObject: {fileID: 762742935}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.69, y: 2.88, z: 0}
+  m_LocalPosition: {x: -6.88, y: 2.88, z: 0}
   m_LocalScale: {x: 0.14, y: 0.14, z: 0.14}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -6359,7 +6359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 55778730}
   ingredient: {fileID: 777254760}
-  ingredientName: tofu
+  ingredientName: Tofu
   category: Protein
 --- !u!114 &777254765
 MonoBehaviour:
@@ -6510,7 +6510,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: pink
+          m_StringArgument: Pink Bowl
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &784405338
@@ -6974,7 +6974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 55778730}
   ingredient: {fileID: 806054775}
-  ingredientName: porkb
+  ingredientName: Pork Bone Broth
   category: Broth
 --- !u!114 &806054780
 MonoBehaviour:
@@ -7855,7 +7855,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -885, y: 261}
+  m_AnchoredPosition: {x: -742, y: 261}
   m_SizeDelta: {x: 424.5, y: 186.68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &961174585
@@ -8278,7 +8278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 55778730}
   ingredient: {fileID: 976651846}
-  ingredientName: bokchoy
+  ingredientName: Bok Choy
   category: Vegetable
 --- !u!114 &976651851
 MonoBehaviour:
@@ -9239,7 +9239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 55778730}
   ingredient: {fileID: 1063599160}
-  ingredientName: chickenb
+  ingredientName: Chicken Broth
   category: Broth
 --- !u!114 &1063599165
 MonoBehaviour:
@@ -9739,14 +9739,14 @@ RectTransform:
   m_GameObject: {fileID: 1158671809}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3502796, y: 0.6367577, z: 1}
+  m_LocalScale: {x: 1.3502796, y: 1.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1823054441}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.05, y: -0.048}
+  m_AnchoredPosition: {x: -2.05, y: -0.23799978}
   m_SizeDelta: {x: 1.841, y: 0.807}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1158671811
@@ -10546,7 +10546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 55778730}
   ingredient: {fileID: 1228165859}
-  ingredientName: mushrooms
+  ingredientName: Shiitake Mushrooms
   category: Vegetable
 --- !u!114 &1228165864
 MonoBehaviour:
@@ -10823,7 +10823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 55778730}
   ingredient: {fileID: 1257674300}
-  ingredientName: torimen
+  ingredientName: Tori-men
   category: Noodle
 --- !u!114 &1257674305
 MonoBehaviour:
@@ -11025,7 +11025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 55778730}
   ingredient: {fileID: 1271593269}
-  ingredientName: onions
+  ingredientName: Scallions
   category: Vegetable
 --- !u!114 &1271593274
 MonoBehaviour:
@@ -11320,7 +11320,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: blue
+          m_StringArgument: Blue Bowl
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1276444815
@@ -11425,14 +11425,14 @@ RectTransform:
   m_GameObject: {fileID: 1284288632}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3502856, y: 0.63675326, z: 1}
+  m_LocalScale: {x: 1.3502856, y: 1.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1636285834}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.31, y: -0.01}
+  m_AnchoredPosition: {x: 2.31, y: -0.1999998}
   m_SizeDelta: {x: 1.841, y: 0.807}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1284288634
@@ -12083,8 +12083,6 @@ GameObject:
   - component: {fileID: 1336858730}
   - component: {fileID: 1336858729}
   - component: {fileID: 1336858728}
-  - component: {fileID: 1336858727}
-  - component: {fileID: 1336858726}
   - component: {fileID: 1336858725}
   - component: {fileID: 1336858724}
   m_Layer: 5
@@ -12151,35 +12149,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1336858726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336858723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b9dbba2e596d4547b4731e15eaef735, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 55778730}
---- !u!114 &1336858727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336858723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31f889a9957356d4aa0ccea1ceb2ca53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 55778730}
-  ingredient: {fileID: 1336858723}
-  ingredientName: blue
-  category: Bowl
 --- !u!114 &1336858728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12267,25 +12236,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bowlOptions:
-  - blue
-  - green
-  - pink
+  - Blue Bowl
+  - Green Bowl
+  - Pink Bowl
   noodleOptions:
-  - chukamen
-  - kuyoumen
-  - torimen
+  - Chukamen
+  - Kuyou-men
+  - Tori-men
   brothOptions:
-  - chickenb
-  - vegetableb
-  - porkb
+  - Chicken Broth
+  - Vegetable Broth
+  - Pork Bone Broth
   proteinOptions:
-  - chicken
-  - egg
-  - tofu
+  - Chicken
+  - Boiled Egg
+  - Tofu
   vegetableOptions:
-  - bokchoy
-  - mushrooms
-  - onions
+  - Bok Choy
+  - Shiitake Mushrooms
+  - Scallions
   brothChicken: {fileID: 1904906213}
   brothPork: {fileID: 1702471499}
   brothVeg: {fileID: 1109280313}
@@ -12295,13 +12264,13 @@ MonoBehaviour:
   chickenBtn: {fileID: 325158574}
   porkBtn: {fileID: 1625881850}
   vegBtn: {fileID: 539445506}
-  playerMoney: 100
+  playerMoney: 20
   moneyText: {fileID: 504409625}
-  bowlCost: 5
-  noodleCost: 3
-  brothCost: 4
-  proteinCost: 6
-  vegetableCost: 2
+  bowlCost: 1
+  noodleCost: 1
+  brothCost: 2
+  proteinCost: 2
+  vegetableCost: 1
   orderText: {fileID: 383558856}
   feedbackText: {fileID: 961174586}
   currentBowlText: {fileID: 704462421}
@@ -12613,7 +12582,7 @@ Transform:
   m_GameObject: {fileID: 1414071022}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.95, y: 2.88, z: 0}
+  m_LocalPosition: {x: -6.14, y: 2.88, z: 0}
   m_LocalScale: {x: 0.14, y: 0.14, z: 0.14}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -12804,29 +12773,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientVisuals:
-  - ingredientName: chicken
+  - ingredientName: Chicken
     ingredientImage: {fileID: 211775611}
-  - ingredientName: egg
+  - ingredientName: Boiled Egg
     ingredientImage: {fileID: 130405984}
-  - ingredientName: tofu
+  - ingredientName: Tofu
     ingredientImage: {fileID: 1137743632}
-  - ingredientName: chukamen
+  - ingredientName: Chukamen
     ingredientImage: {fileID: 1805440835}
-  - ingredientName: kuyoumen
+  - ingredientName: Kuyou-men
     ingredientImage: {fileID: 1310018386}
-  - ingredientName: torimen
+  - ingredientName: Tori-men
     ingredientImage: {fileID: 1612632899}
-  - ingredientName: chickenb
+  - ingredientName: Chicken Broth
     ingredientImage: {fileID: 2105289183}
-  - ingredientName: porkb
+  - ingredientName: Pork Bone Broth
     ingredientImage: {fileID: 788412999}
-  - ingredientName: vegetableb
+  - ingredientName: Vegetable Broth
     ingredientImage: {fileID: 788412999}
-  - ingredientName: bokchoy
+  - ingredientName: Bok Choy
     ingredientImage: {fileID: 1773923873}
-  - ingredientName: mushrooms
+  - ingredientName: Shiitake Mushrooms
     ingredientImage: {fileID: 1030703589}
-  - ingredientName: onions
+  - ingredientName: Scallions
     ingredientImage: {fileID: 2015665922}
 --- !u!1 &1435664697
 GameObject:
@@ -13023,14 +12992,14 @@ RectTransform:
   m_GameObject: {fileID: 1461122928}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3502856, y: 0.63675326, z: 1}
+  m_LocalScale: {x: 1.3502856, y: 1.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 578880633}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.3879225, y: -0.16}
+  m_AnchoredPosition: {x: 2.3879225, y: -0.35}
   m_SizeDelta: {x: 1.841, y: 0.807}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1461122930
@@ -14397,7 +14366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 55778730}
   ingredient: {fileID: 1665116154}
-  ingredientName: egg
+  ingredientName: Boiled Egg
   category: Protein
 --- !u!114 &1665116159
 MonoBehaviour:
@@ -14776,7 +14745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 55778730}
   ingredient: {fileID: 1700463115}
-  ingredientName: kuyoumen
+  ingredientName: Kuyou-men
   category: Noodle
 --- !u!114 &1700463120
 MonoBehaviour:
@@ -14980,7 +14949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 55778730}
   ingredient: {fileID: 1709471863}
-  ingredientName: chukamen
+  ingredientName: Chukamen
   category: Noodle
 --- !u!114 &1709471868
 MonoBehaviour:
@@ -16351,14 +16320,14 @@ RectTransform:
   m_GameObject: {fileID: 1903627477}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3502796, y: 0.6367577, z: 1}
+  m_LocalScale: {x: 1.3502796, y: 1.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 529581725}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.382075, y: -0.2}
+  m_AnchoredPosition: {x: -2.382075, y: -0.38999978}
   m_SizeDelta: {x: 1.841, y: 0.807}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1903627479
@@ -17636,7 +17605,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: green
+          m_StringArgument: Green Bowl
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2069236045
@@ -18118,7 +18087,6 @@ GameObject:
   - component: {fileID: 2105839153}
   - component: {fileID: 2105839152}
   - component: {fileID: 2105839151}
-  - component: {fileID: 2105839150}
   m_Layer: 5
   m_Name: BlueStock
   m_TagString: Untagged
@@ -18145,20 +18113,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2105839150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105839148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a80d6cca23574314296dc5b8f3685082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 55778730}
-  draggableIngredient: {fileID: 1336858723}
 --- !u!225 &2105839151
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -18444,29 +18398,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientVisuals:
-  - ingredientName: chicken
+  - ingredientName: Chicken
     ingredientImage: {fileID: 211775611}
-  - ingredientName: egg
+  - ingredientName: Boiled Egg
     ingredientImage: {fileID: 130405984}
-  - ingredientName: tofu
+  - ingredientName: Tofu
     ingredientImage: {fileID: 1137743632}
-  - ingredientName: chukamen
+  - ingredientName: Chukamen
     ingredientImage: {fileID: 1805440835}
-  - ingredientName: kuyoumen
+  - ingredientName: Kuyou-men
     ingredientImage: {fileID: 1310018386}
-  - ingredientName: torimen
+  - ingredientName: Tori-men
     ingredientImage: {fileID: 1612632899}
-  - ingredientName: chickenb
+  - ingredientName: Chicken Broth
     ingredientImage: {fileID: 2105289183}
-  - ingredientName: porkb
+  - ingredientName: Pork Bone Broth
     ingredientImage: {fileID: 788412999}
-  - ingredientName: vegetableb
+  - ingredientName: Vegetable Broth
     ingredientImage: {fileID: 788412999}
-  - ingredientName: bokchoy
+  - ingredientName: Bok Choy
     ingredientImage: {fileID: 1773923873}
-  - ingredientName: mushrooms
+  - ingredientName: Shiitake Mushrooms
     ingredientImage: {fileID: 1030703589}
-  - ingredientName: onions
+  - ingredientName: Scallions
     ingredientImage: {fileID: 2015665922}
 --- !u!1 &2146124387
 GameObject:

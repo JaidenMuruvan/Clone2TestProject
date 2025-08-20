@@ -20,15 +20,15 @@ public class BowlSelector : MonoBehaviour
 
         switch (bowlName)
         {
-            case "green": activeBowl = bowlGreen; break;
-            case "blue": activeBowl = bowlBlue; break;
-            case "pink": activeBowl= bowlPink; break;
+            case "Green Bowl": activeBowl = bowlGreen; break;
+            case "Blue Bowl": activeBowl = bowlBlue; break;
+            case "Pink Bowl": activeBowl= bowlPink; break;
         }
 
         if (activeBowl != null)
         {
             activeBowl.SetActive(true);
-            orderManager.AddIngredient("Bowl", bowlName);
+            orderManager.AddIngredient("Bowl",bowlName);
             Debug.Log($"Bowl selected: {bowlName}");
         }
     }
