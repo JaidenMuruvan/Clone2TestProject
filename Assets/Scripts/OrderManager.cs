@@ -1,7 +1,7 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static BowlVisuals;
 
 [System.Serializable]
 public class RamenOrder
@@ -11,6 +11,21 @@ public class RamenOrder
     public string brothType;
     public string proteinType;
     public string vegetableType;
+}
+
+[System.Serializable]
+public class Recipe
+{
+    public string recipeName;
+    public List<string> ingredients;
+    public int reward;
+}
+
+//Enum to distinguish between recipe orders and random orders
+public enum OrderType
+{
+    Recipe,
+    Random
 }
 
 public class OrderManager : MonoBehaviour
@@ -47,10 +62,6 @@ public class OrderManager : MonoBehaviour
     public int proteinCost = 6;
     public int vegetableCost = 2;
 
-    [Header("Order Reward")]
-    public int orderReward = 20;
-
-
     [Header("UI")]
     public Text orderText;
     public Text feedbackText;
@@ -59,9 +70,13 @@ public class OrderManager : MonoBehaviour
     public GameObject bowlGreen;
     public GameObject bowlBlue;
     public GameObject bowlPink;
+    public GameObject oneStar;
+    public GameObject twoStar;
+    public GameObject threeStar;
+
 
     [Header("Timer Settings")]
-    public float orderTimeLimit = 30f; //seconds
+    public float orderTimeLimit = 30f;
     private float timer;
     public Text timerText;
     private bool timerRunning;
@@ -69,78 +84,143 @@ public class OrderManager : MonoBehaviour
     [SerializeField] public RamenOrder currentOrder;
     [SerializeField] public RamenOrder playerBowl;
 
-    
+    public List<Recipe> standardRecipes = new List<Recipe>();
+
+    private int orderCount = 0;
+    private Recipe currentRecipe;
+    private bool isRecipeOrder = false;
 
     void Start()
     {
         playerBowl = new RamenOrder();
-        GenerateOrder();
+
+        //Setup of standard recipes
+        Recipe recipe1 = new Recipe
+        {
+            recipeName = "Misco Chicken Ramen",
+            ingredients = new List<string> { "blue", "chickenb", "chukamen", "bokchoy", "chicken", "onions" },
+            reward = 10
+        };
+        Recipe recipe2 = new Recipe
+        {
+            recipeName = "Vegetable Shio Ramen (Vegetarian)",
+            ingredients = new List<string> { "green", "vegetableb", "torimen", "bokchoy", "tofu", "onions" },
+            reward = 5
+        };
+        Recipe recipe3 = new Recipe
+        {
+            recipeName = "Tonkotsu Egg Ramen",
+            ingredients = new List<string> { "pink", "porkb", "torimen", "bokchoy", "egg", "mushrooms" },
+            reward = 8
+        };
+
+        standardRecipes.Add(recipe1);
+        standardRecipes.Add(recipe2);
+        standardRecipes.Add(recipe3);
+
+        GenerateNextOrder();
         UpdateMoneyUI();
     }
 
-    public void UpdateMoneyUI()
+    public void GenerateNextOrder()
     {
-        if (playerMoney < 0)
-        {
-            playerMoney = 0;
-            EndGame();
-        }
+        orderCount++;
 
-        moneyText.text = $"${playerMoney}";
+        //First two orders are always recipes (tutorial)
+        if (orderCount == 1)
+        {
+            isRecipeOrder = true;
+            currentRecipe = standardRecipes[0];
+            GenerateRecipeOrder(currentRecipe);
+        }
+        else if (orderCount == 2)
+        {
+            isRecipeOrder = true;
+            currentRecipe = standardRecipes[1];
+            GenerateRecipeOrder(currentRecipe);
+        }
+        else
+        {
+            //Randomly choose recipe or random order
+            int rand = Random.Range(0, 2);
+            if (rand == 0)
+            {
+                isRecipeOrder = true;
+                currentRecipe = standardRecipes[Random.Range(0, standardRecipes.Count)];
+                GenerateRecipeOrder(currentRecipe);
+            }
+            else
+            {
+                isRecipeOrder = false;
+                GenerateRandomOrder();
+            }
+        }
     }
 
-    public void EndGame()
-    {
-        Debug.Log("Game Over! You ran out of money.");
-        feedbackText.text = "Game Over! You ran out of money.";
-
-        foreach (DragDrop ingredient in FindObjectsOfType<DragDrop>())
-        {
-            ingredient.enabled = false;
-        }
-
-        timerRunning = false;
-    }
-    public void GenerateOrder()
+    private void GenerateRecipeOrder(Recipe recipe)
     {
         orderStartTime = Time.time;
         currentOrder = new RamenOrder();
 
-        //Bowl and broth always present
+        
+        foreach (string ing in recipe.ingredients)
+        {
+            if (ing == "blue" || ing == "green" || ing == "pink")
+                currentOrder.bowlType = ing;
+            else if (ing.EndsWith("b"))
+                currentOrder.brothType = ing;
+            else if (System.Array.Exists(noodleOptions, x => x == ing))
+                currentOrder.noodleType = ing;
+            else if (System.Array.Exists(proteinOptions, x => x == ing))
+                currentOrder.proteinType = ing;
+            else if (System.Array.Exists(vegetableOptions, x => x == ing))
+                currentOrder.vegetableType = ing;
+        }
+
+        //Display order
+        DisplayOrderText(currentOrder);
+        feedbackText.text = "";
+
+        playerBowl = new RamenOrder();
+        StartCoroutine(DelayTimer());
+    }
+
+    public void GenerateRandomOrder()
+    {
+        orderStartTime = Time.time;
+        currentOrder = new RamenOrder();
+
         currentOrder.bowlType = bowlOptions[Random.Range(0, bowlOptions.Length)];
         currentOrder.brothType = brothOptions[Random.Range(0, brothOptions.Length)];
 
-        //50% chance for noodles
         if (Random.value < 0.5f)
             currentOrder.noodleType = noodleOptions[Random.Range(0, noodleOptions.Length)];
 
-        //40% chance for protein
         if (Random.value < 0.4f)
             currentOrder.proteinType = proteinOptions[Random.Range(0, proteinOptions.Length)];
 
-        //60% chance for vegetable
         if (Random.value < 0.6f)
             currentOrder.vegetableType = vegetableOptions[Random.Range(0, vegetableOptions.Length)];
 
-        string orderString = $"Customer Order:\n{currentOrder.bowlType} bowl\n{currentOrder.brothType} broth";
-
-        if (!string.IsNullOrEmpty(currentOrder.noodleType))
-            orderString += $"\n{currentOrder.noodleType} noodles";
-
-        if (!string.IsNullOrEmpty(currentOrder.proteinType))
-            orderString += $"\n{currentOrder.proteinType}";
-
-        if (!string.IsNullOrEmpty(currentOrder.vegetableType))
-            orderString += $"\n{currentOrder.vegetableType}";
-
-        orderText.text = orderString;
+        DisplayOrderText(currentOrder);
         feedbackText.text = "";
-   
 
         playerBowl = new RamenOrder();
-
-        //Reset and start timer
         StartCoroutine(DelayTimer());
+    }
+
+    private void DisplayOrderText(RamenOrder order)
+    {
+        string orderString = $"Customer Order:\n{order.bowlType} bowl\n{order.brothType} broth";
+
+        if (!string.IsNullOrEmpty(order.noodleType))
+            orderString += $"\n{order.noodleType} noodles";
+        if (!string.IsNullOrEmpty(order.proteinType))
+            orderString += $"\n{order.proteinType}";
+        if (!string.IsNullOrEmpty(order.vegetableType))
+            orderString += $"\n{order.vegetableType}";
+
+        orderText.text = orderString;
     }
 
     IEnumerator DelayTimer()
@@ -149,6 +229,9 @@ public class OrderManager : MonoBehaviour
 
         timer = orderTimeLimit;
         timerRunning = true;
+        oneStar.SetActive(false);
+        twoStar.SetActive(false);
+        threeStar.SetActive(false);
         UpdateTimerUI();
 
         brothChicken.SetActive(false);
@@ -158,77 +241,63 @@ public class OrderManager : MonoBehaviour
         chickenBtn.SetActive(true);
         porkBtn.SetActive(true);
         vegBtn.SetActive(true);
-
     }
+
     void Update()
     {
         if (timerRunning)
         {
             timer -= Time.deltaTime;
-            
             UpdateTimerUI();
 
             if (timer <= 0f)
             {
                 timer = 0f;
                 timerRunning = false;
-                OrderFailed(); //time up
+                OrderFailed();
             }
-        } 
-    }
-
-    public void BoilBrothChicken()
-    {
-        brothChickenCover.SetActive(true);
-        StartCoroutine(BrothBoilingChicken());
-        chickenBtn.SetActive(false);
-    }
-    public IEnumerator BrothBoilingChicken()
-    {
-        yield return new WaitForSeconds(2f);
-
-        brothChicken.SetActive(true);
-        brothChickenCover.SetActive(false);
-    }
-
-    public void BoilBrothPork()
-    {
-        brothPorkCover.SetActive(true);
-        StartCoroutine(BrothBoilingPork());
-        porkBtn.SetActive(false);
-    }
-    public IEnumerator BrothBoilingPork()
-    {
-        yield return new WaitForSeconds(2f);
-
-        brothPork.SetActive(true);
-        brothPorkCover.SetActive(false);
-    }
-
-    public void BoilBrothVeg()
-    {
-        brothVegCover.SetActive(true);
-        StartCoroutine(BrothBoilingVeg());
-        vegBtn.SetActive(false);
-    }
-    public IEnumerator BrothBoilingVeg()
-    {
-        yield return new WaitForSeconds(2f);
-
-        brothVeg.SetActive(true);
-        brothVegCover.SetActive(false);
+        }
     }
 
     void OrderFailed()
     {
         feedbackText.text = "Time's up! Customer left angry!";
-        
-        Invoke(nameof(GenerateOrder), 2f); //Wait then new order
+        Invoke(nameof(GenerateNextOrder), 2f);
     }
 
-    void UpdateTimerUI()
-    {
-        timerText.text = $"{Mathf.Ceil(timer)}s";
+    public void BoilBrothChicken() 
+    { 
+        brothChickenCover.SetActive(true); 
+        StartCoroutine(BrothBoilingChicken()); 
+        chickenBtn.SetActive(false); 
+    }
+    public IEnumerator BrothBoilingChicken() 
+    { 
+        yield return new WaitForSeconds(2f); 
+        brothChicken.SetActive(true); 
+        brothChickenCover.SetActive(false); 
+    }
+    public void BoilBrothPork() 
+    { 
+        brothPorkCover.SetActive(true); 
+        StartCoroutine(BrothBoilingPork()); 
+        porkBtn.SetActive(false); 
+    }
+    public IEnumerator BrothBoilingPork() 
+    { yield return new WaitForSeconds(2f); 
+        brothPork.SetActive(true); 
+        brothPorkCover.SetActive(false); 
+    }
+    public void BoilBrothVeg() 
+    { 
+        brothVegCover.SetActive(true); 
+        StartCoroutine(BrothBoilingVeg()); 
+        vegBtn.SetActive(false); 
+    }
+    public IEnumerator BrothBoilingVeg() 
+    { yield return new WaitForSeconds(2f); 
+        brothVeg.SetActive(true); 
+        brothVegCover.SetActive(false); 
     }
 
     public void AddIngredient(string category, string ingredient)
@@ -260,75 +329,15 @@ public class OrderManager : MonoBehaviour
         UpdateMoneyUI();
     }
 
-    public bool CheckOrder()
-    {
-        bool isCorrect = true;
-
-        //Bowl and broth always required
-        if (playerBowl.bowlType != currentOrder.bowlType)
-            isCorrect = false;
-
-        if (playerBowl.brothType != currentOrder.brothType)
-            isCorrect = false;
-
-        //Noodles
-        if (!string.IsNullOrEmpty(currentOrder.noodleType) &&
-            playerBowl.noodleType != currentOrder.noodleType)
-            isCorrect = false;
-
-        //Protein
-        if (!string.IsNullOrEmpty(currentOrder.proteinType) &&
-            playerBowl.proteinType != currentOrder.proteinType)
-            isCorrect = false;
-
-        //Vegetable
-        if (!string.IsNullOrEmpty(currentOrder.vegetableType) &&
-            playerBowl.vegetableType != currentOrder.vegetableType)
-            isCorrect = false;
-
-        return isCorrect;
-    }
-
-    
-
-    private int CalculateReward(RamenOrder order)
-    {
-        int reward = 0;
-
-        reward += 5; //Base reward, reward for only bowl and broth
-
-        if (!string.IsNullOrEmpty(order.noodleType))
-            reward += 3;
-            Debug.Log(reward);
-
-        if (!string.IsNullOrEmpty(order.proteinType))
-            reward += 6;
-            Debug.Log(reward);
-
-
-        if (!string.IsNullOrEmpty(order.vegetableType))
-            reward += 2;
-            Debug.Log(reward);
-
-
-        return reward;
-    }
     public void ServeOrder()
     {
-        timerRunning = false; //Stop timer 
-        StartCoroutine(GhostBtn());
+        timerRunning = false;
+
         bowlGreen.SetActive(false);
         bowlBlue.SetActive(false);
         bowlPink.SetActive(false);
 
-        
-        bool correct = true;
-
-        if (playerBowl.bowlType != currentOrder.bowlType) correct = false;
-        if (playerBowl.noodleType != currentOrder.noodleType) correct = false;
-        if (playerBowl.brothType != currentOrder.brothType) correct = false;
-        if (playerBowl.proteinType != currentOrder.proteinType) correct = false;
-        if (playerBowl.vegetableType != currentOrder.vegetableType) correct = false;
+        bool correct = CheckOrder();
 
         if (correct)
         {
@@ -345,51 +354,93 @@ public class OrderManager : MonoBehaviour
             feedbackText.text = "Wrong order! Customer is upset!";
         }
 
-        
+        Invoke(nameof(GenerateNextOrder), 2f);
+    }
 
-        Invoke(nameof(GenerateOrder), 2f); //Wait 2 seconds, then new order
+    private int CalculateReward(RamenOrder order)
+    {
+        int reward = 5; //base reward
+
+        if (!string.IsNullOrEmpty(order.noodleType)) reward += 3;
+        if (!string.IsNullOrEmpty(order.proteinType)) reward += 6;
+        if (!string.IsNullOrEmpty(order.vegetableType)) reward += 2;
+
+        return reward;
     }
 
     private int CalculateStars(float timeTaken)
     {
         if (timeTaken <= 20f)
+        {
+            oneStar.SetActive(true);
+            twoStar.SetActive(true);
+            threeStar.SetActive(true);
             return 3;
+        }
         else if (timeTaken <= 45f)
+        {
+            oneStar.SetActive(true);
+            twoStar.SetActive(true);
             return 2;
+        }
         else if (timeTaken <= 55f)
+        {
+            oneStar.SetActive(true);
             return 1;
-        else
-            return 0;
+        }
+        else return 0;
     }
 
-    IEnumerator GhostBtn()
+    public bool CheckOrder()
     {
-        serveBtn.SetActive(false);
+        bool isCorrect = true;
 
-        yield return new WaitForSeconds(4f);
+        if (playerBowl.bowlType != currentOrder.bowlType) isCorrect = false;
+        if (playerBowl.brothType != currentOrder.brothType) isCorrect = false;
+        if (!string.IsNullOrEmpty(currentOrder.noodleType) && playerBowl.noodleType != currentOrder.noodleType) isCorrect = false;
+        if (!string.IsNullOrEmpty(currentOrder.proteinType) && playerBowl.proteinType != currentOrder.proteinType) isCorrect = false;
+        if (!string.IsNullOrEmpty(currentOrder.vegetableType) && playerBowl.vegetableType != currentOrder.vegetableType) isCorrect = false;
 
-        serveBtn.SetActive(true);
+        return isCorrect;
+    }
 
+    public void UpdateMoneyUI()
+    {
+        if (playerMoney < 0)
+        {
+            playerMoney = 0;
+            EndGame();
+        }
+
+        moneyText.text = $"${playerMoney}";
+    }
+
+    public void EndGame()
+    {
+        feedbackText.text = "Game Over! You ran out of money.";
+
+        foreach (DragDrop ingredient in FindObjectsOfType<DragDrop>())
+        {
+            ingredient.enabled = false;
+        }
+
+        timerRunning = false;
+    }
+
+    void UpdateTimerUI()
+    {
+        timerText.text = $"{Mathf.Ceil(timer)}s";
     }
 
     public void UpdateCurrentBowlText()
     {
         string display = "Last added to bowl:\n";
 
-        if (!string.IsNullOrEmpty(playerBowl.bowlType))
-            display += $"{playerBowl.bowlType} bowl\n";
-
-        if (!string.IsNullOrEmpty(playerBowl.brothType))
-            display += $"{playerBowl.brothType} broth\n";
-
-        if (!string.IsNullOrEmpty(playerBowl.noodleType))
-            display += $"{playerBowl.noodleType} noodles\n";
-
-        if (!string.IsNullOrEmpty(playerBowl.proteinType))
-            display += $"{playerBowl.proteinType}\n";
-
-        if (!string.IsNullOrEmpty(playerBowl.vegetableType))
-            display += $"{playerBowl.vegetableType}\n";
+        if (!string.IsNullOrEmpty(playerBowl.bowlType)) display += $"{playerBowl.bowlType} bowl\n";
+        if (!string.IsNullOrEmpty(playerBowl.brothType)) display += $"{playerBowl.brothType} broth\n";
+        if (!string.IsNullOrEmpty(playerBowl.noodleType)) display += $"{playerBowl.noodleType} noodles\n";
+        if (!string.IsNullOrEmpty(playerBowl.proteinType)) display += $"{playerBowl.proteinType}\n";
+        if (!string.IsNullOrEmpty(playerBowl.vegetableType)) display += $"{playerBowl.vegetableType}\n";
 
         currentBowlText.text = display;
     }
