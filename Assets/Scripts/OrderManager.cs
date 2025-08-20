@@ -73,6 +73,9 @@ public class OrderManager : MonoBehaviour
     public GameObject oneStar;
     public GameObject twoStar;
     public GameObject threeStar;
+    public GameObject characterOne;
+    public GameObject characterTwo;
+    public GameObject characterThree;
 
 
     [Header("Timer Settings")]
@@ -100,6 +103,7 @@ public class OrderManager : MonoBehaviour
             recipeName = "Misco Chicken Ramen",
             ingredients = new List<string> { "Blue Bowl", "Chicken Broth", "Chukamen", "Bok Choy", "Chicken", "Scallions" },
             reward = 10
+            
         };
         Recipe recipe2 = new Recipe
         {
@@ -120,6 +124,7 @@ public class OrderManager : MonoBehaviour
 
         GenerateNextOrder();
         UpdateMoneyUI();
+        
     }
 
     public void GenerateNextOrder()
@@ -132,12 +137,14 @@ public class OrderManager : MonoBehaviour
             isRecipeOrder = true;
             currentRecipe = standardRecipes[0];
             GenerateRecipeOrder(currentRecipe);
+            characterOne.SetActive(true);
         }
         else if (orderCount == 2)
         {
             isRecipeOrder = true;
             currentRecipe = standardRecipes[1];
             GenerateRecipeOrder(currentRecipe);
+            characterTwo.SetActive(true);
         }
         else
         {
@@ -148,11 +155,14 @@ public class OrderManager : MonoBehaviour
                 isRecipeOrder = true;
                 currentRecipe = standardRecipes[Random.Range(0, standardRecipes.Count)];
                 GenerateRecipeOrder(currentRecipe);
+                characterThree.SetActive(true);
             }
             else
             {
                 isRecipeOrder = false;
                 GenerateRandomOrder();
+                characterOne.SetActive(true);
+
             }
         }
     }
@@ -206,6 +216,7 @@ public class OrderManager : MonoBehaviour
         feedbackText.text = "";
 
         playerBowl = new RamenOrder();
+        
         StartCoroutine(DelayTimer());
     }
 
@@ -263,7 +274,12 @@ public class OrderManager : MonoBehaviour
     {
         feedbackText.text = "Time's up! Customer left angry!";
         Invoke(nameof(GenerateNextOrder), 5f);
+        characterOne.SetActive(false);
+        characterTwo.SetActive(false);
+        characterThree.SetActive(false);
+
     }
+
 
     public void BoilBrothChicken() 
     { 
@@ -299,6 +315,8 @@ public class OrderManager : MonoBehaviour
         brothVeg.SetActive(true); 
         brothVegCover.SetActive(false); 
     }
+
+
 
     public void AddIngredient(string category, string ingredient)
     {
@@ -353,7 +371,9 @@ public class OrderManager : MonoBehaviour
         {
             feedbackText.text = "Wrong order! Customer is upset!";
         }
-
+        characterOne.SetActive(false);
+        characterTwo.SetActive(false);
+        characterThree.SetActive(false);
         Invoke(nameof(GenerateNextOrder), 5f);
     }
 
