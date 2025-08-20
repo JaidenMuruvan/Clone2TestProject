@@ -370,20 +370,20 @@ public class OrderManager : MonoBehaviour
 
     private int CalculateStars(float timeTaken)
     {
-        if (timeTaken <= 20f)
+        if (timeTaken <= 10f)
         {
             oneStar.SetActive(true);
             twoStar.SetActive(true);
             threeStar.SetActive(true);
             return 3;
         }
-        else if (timeTaken <= 45f)
+        else if (timeTaken <= 25f)
         {
             oneStar.SetActive(true);
             twoStar.SetActive(true);
             return 2;
         }
-        else if (timeTaken <= 55f)
+        else if (timeTaken <= 32f)
         {
             oneStar.SetActive(true);
             return 1;

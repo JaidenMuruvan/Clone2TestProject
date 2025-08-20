@@ -12281,7 +12281,7 @@ MonoBehaviour:
   oneStar: {fileID: 762742935}
   twoStar: {fileID: 1414071022}
   threeStar: {fileID: 221218236}
-  orderTimeLimit: 30
+  orderTimeLimit: 35
   timerText: {fileID: 457285289}
   currentOrder:
     bowlType: 
